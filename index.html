@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortax | You Own Bank</title>
+    <!-- Links -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="Assets/Logo.png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sign-log-container inactive">
+        <div class="left-part">
+          <!-- Log & Sign Form -->
+          <form class="form">
+            <div class="switch">
+              <button class="switch-btn log-switch switch-btn-active">
+                Log In
+              </button>
+              <div class="line"></div>
+              <button class="switch-btn sign-switch">Sign Up</button>
+            </div>
+
+            <!-- Log In Part -->
+            <div class="second-form log-in">
+              <input type="email" class="input e-mail" placeholder="E-Mail" />
+              <input
+                type="password"
+                class="input log-password"
+                placeholder="Password"
+              />
+            </div>
+            <!-- Sign Up Part -->
+            <div class="second-form sign-up inactive">
+              <input
+                type="text"
+                class="input first-name"
+                placeholder="First Name"
+                required
+              />
+              <input
+                type="text"
+                class="input last-name"
+                placeholder="Last Name"
+                required
+              />
+              <div class="gender-container">
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender" required>
+                  <option value="female">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <input
+                type="email"
+                class="input e-mail"
+                placeholder="E-Mail"
+                required
+              />
+              <input
+                type="password"
+                class="input sign-password"
+                placeholder="Password"
+                required
+              />
+              <input
+                type="password"
+                class="input confirm-sign-password"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+            <button class="btn">Log In</button>
+          </form>
+        </div>
+
+        <div class="right-part">
+          <img src="Assets/Logo.png" alt="" class="logo-login" />
+          <img src="Assets/Profile.png" alt="Sorry!" class="profile-img" />
+        </div>
+      </div>
+
+      <!-- MAIN PAGES -->
+      <div class="upper-part-container">
+        <nav class="nav">
+          <a href="/"><img src="Assets/Logo.png" alt="Logo" class="logo" /></a>
+          <h1 class="title">Welcome <span class="name">Mr.Sayed</span></h1>
+          <i class="bx bx-user-circle profile-icon"></i>
+        </nav>
+        <!-- pages buttons -->
+        <div class="pages-btn">
+          <button class="balance-btn btn-active">Balance</button>
+          <button class="transfer-btn">Transfer</button>
+          <button class="loan-btn">Loan</button>
+        </div>
+        <!-- balance container -->
+        <div class="current-balance">
+          <div class="left-balance">
+            <h1 class="balance-title">Current Balance</h1>
+            <div class="date">
+              <div class="balance-data">20 - 2 - 2023</div>
+              <div class="balance-time">12:00</div>
+            </div>
+          </div>
+          <div class="right-balance">
+            <h1 class="balance">25,699$</h1>
+          </div>
+        </div>
+      </div>
+      <!-- Movements -->
+      <div class="movements-container">
+        <div class="movements-container-scroll">
+          <div class="movement">
+            <div class="movement-type">
+              <i class="bx bx-left-down-arrow-circle movement-type-icon"></i>
+              <p class="movement-type-text">DEPOSIT</p>
+            </div>
+            <div class="movement-date">13 - 12 - 2023</div>
+            <div class="movement-amount">300$</div>
+          </div>
+
+          <div class="movement">
+            <div class="movement-type">
+              <i class="bx bx-left-top-arrow-circle movement-type-icon"></i>
+              <p class="movement-type-text">WITHDRAWAL</p>
+            </div>
+            <div class="movement-date">1 - 12 - 2023</div>
+            <div class="movement-amount">1000$</div>
+          </div>
+        </div>
+      </div>
+      <!-- Transfer -->
+      <div class="transfer-container inactive">
+        <h1 class="transfer-title">Transfer Mony</h1>
+        <form class="transfer-form">
+          <input
+            type="text"
+            class="transfer-input input-to"
+            placeholder="To..."
+          />
+          <input
+            type="number"
+            class="transfer-input input-amount"
+            placeholder="Amount..."
+            min="0"
+          />
+          <input
+            type="password"
+            class="transfer-input input-password"
+            placeholder="Password..."
+          />
+          <button class="transfer-button">Confirm</button>
+        </form>
+      </div>
+
+      <!-- Loan -->
+      <div class="loan-container inactive">
+        <h1 class="loan-title">Request Loan</h1>
+        <form class="loan-form">
+          <input
+            type="text"
+            class="loan-input loan-amount"
+            placeholder="Amount..."
+          />
+          <input
+            type="password"
+            class="loan-input loan-password"
+            placeholder="Password..."
+          />
+          <button class="loan-button">Confirm</button>
+        </form>
+      </div>
+
+      <!-- Profile -->
+      <div class="profile-container inactive">
+        <div class="profile-name-container">
+          <h1 class="name-label">Name</h1>
+          <div class="profile-name">Elsayed Hamada</div>
+        </div>
+        <div class="profile-mail-container">
+          <h1 class="mail-label">Email</h1>
+          <div class="profile-mail">elsayedhamada@gmail.com</div>
+        </div>
+        <div class="profile-password-container">
+          <h1 class="password-label">Password</h1>
+          <div class="profile-password">12345678</div>
+        </div>
+        <button class="delete-account">Delete account</button>
+      </div>
+
+      <!-- Lower Part -->
+      <div class="lower-part-container">
+        <div class="left-part-lower">
+          <h1 class="in-total">IN:<span class="in-num">3000$</span></h1>
+          <h1 class="out-total">OUT:<span class="out-num">1000$</span></h1>
+          <h1 class="interest-total">
+            INTEREST:<span class="interest-num">60$</span>
+          </h1>
+        </div>
+        <div class="right-part-lower sort">
+          <i class="bx bx-sort-alt-2 sort-icon"></i>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
