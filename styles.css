@@ -408,7 +408,9 @@ select {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1f 1fr;
-  width: 60%;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
 }
 
 .transfer-input,
@@ -447,6 +449,7 @@ select {
 
 .transfer-button,
 .loan-button {
+  padding: 1rem ;
   background-color: #cd5888;
   border-radius: 0.8rem;
   border: none;
@@ -583,17 +586,17 @@ select {
   .nav {
     width: 100rem;
   }
-  
+
   .movement,
   .lower-part-container {
     width: 80rem;
   }
 
-  .sign-log-container{
+  .sign-log-container {
     grid-template-rows: 1fr 1fr 1fr;
   }
 
-  .right-part{
+  .right-part {
     grid-row: 1;
     grid-column: 1 / span 3;
     width: 20rem;
@@ -602,23 +605,22 @@ select {
     margin: 0 auto;
   }
 
-  .logo-login{
+  .logo-login {
     width: 10rem;
   }
 
-  .left-part{
+  .left-part {
     grid-column: 1 / span 2;
     grid-row: 2 / span 2;
   }
 
-  .profile-img{
+  .profile-img {
     display: none;
   }
 
-  .form{
+  .form {
     padding: 2rem;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -632,9 +634,17 @@ select {
   .movement {
     grid-template-columns: 2fr 1fr 3fr;
   }
+  .transfer-container,
+  .loan-container{
+    width: 50rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
+  .transfer-container,
+  .loan-container{
+    width: 50rem;
+  }
   .nav {
     width: 50rem;
   }
@@ -673,7 +683,18 @@ select {
     justify-content: center;
     flex-direction: column;
   }
-
+  .transfer-container,
+  .loan-container{
+    width: 30rem;
+    text-align: center;
+  }
+  .transfer-form,
+  .loan-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
   .transfer-btn {
     margin: 1rem 0;
   }
@@ -702,7 +723,7 @@ select {
     /* grid-template-rows: 1fr 1fr 1fr; */
   }
 
-  .current-balance:hover .balance{
+  .current-balance:hover .balance {
     font-size: 3rem;
   }
   .movement-amount {
