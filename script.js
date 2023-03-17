@@ -14,7 +14,6 @@ const loan = document.querySelector(".loan-container");
 const profileBtn = document.querySelector(".profile-icon")
 const profile = document.querySelector(".profile-container")
 const pagesBtn = document.querySelector(".pages-btn")
-
 /* STYLING FUNCTIONALITY */
 //Sign & Log
 logBtn.addEventListener("click", (e) => {

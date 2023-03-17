@@ -193,6 +193,7 @@ select {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
+  animation: moveUp 1s ease;
 }
 
 .logo {
@@ -232,6 +233,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation: moveUp 1s ease;
 }
 
 .balance-btn,
@@ -268,6 +270,7 @@ select {
 
 /* Balance */
 .current-balance {
+  animation: moveUp 1s ease;
   width: 50rem;
   background-color: #913175;
   display: flex;
@@ -313,12 +316,14 @@ select {
 
 .movements-container-scroll {
   width: 100%;
+  height: 21rem;
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   overflow: scroll;
+  animation: moveUp 1s ease;
 }
 
 .movements-container-scroll::-webkit-scrollbar {
@@ -394,6 +399,7 @@ select {
   justify-content: center;
   flex-direction: column;
   padding: 2rem;
+  animation: moveUp 1s ease;
 }
 
 .transfer-title,
@@ -449,7 +455,7 @@ select {
 
 .transfer-button,
 .loan-button {
-  padding: 1rem ;
+  padding: 1rem;
   background-color: #cd5888;
   border-radius: 0.8rem;
   border: none;
@@ -471,11 +477,12 @@ select {
 
 /* Lower part */
 .lower-part-container {
-  width: 115rem;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  animation: moveUp 1s ease;
 }
 
 .left-part-lower {
@@ -635,14 +642,14 @@ select {
     grid-template-columns: 2fr 1fr 3fr;
   }
   .transfer-container,
-  .loan-container{
+  .loan-container {
     width: 50rem;
   }
 }
 
 @media screen and (max-width: 750px) {
   .transfer-container,
-  .loan-container{
+  .loan-container {
     width: 50rem;
   }
   .nav {
@@ -684,12 +691,12 @@ select {
     flex-direction: column;
   }
   .transfer-container,
-  .loan-container{
+  .loan-container {
     width: 30rem;
     text-align: center;
   }
   .transfer-form,
-  .loan-form{
+  .loan-form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -738,5 +745,16 @@ select {
   .movement-date {
     font-size: 1rem;
     grid-column: 1 / span 2;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
