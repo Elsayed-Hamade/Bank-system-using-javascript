@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="sign-log-container inactive">
+      <div class="sign-log-container">
         <div class="left-part">
           <!-- Log & Sign Form -->
           <form class="form">
@@ -45,38 +45,29 @@
                 type="text"
                 class="input first-name"
                 placeholder="First Name"
-                required
               />
               <input
                 type="text"
                 class="input last-name"
                 placeholder="Last Name"
-                required
               />
               <div class="gender-container">
                 <label for="gender">Gender</label>
-                <select name="gender" id="gender" required>
+                <select name="gender" id="gender">
                   <option value="female">Male</option>
                   <option value="female">Female</option>
                 </select>
               </div>
-              <input
-                type="email"
-                class="input e-mail"
-                placeholder="E-Mail"
-                required
-              />
+              <input type="email" class="input e-mail" placeholder="E-Mail" />
               <input
                 type="password"
                 class="input sign-password"
                 placeholder="Password"
-                required
               />
               <input
                 type="password"
                 class="input confirm-sign-password"
                 placeholder="Confirm Password"
-                required
               />
             </div>
             <button class="btn">Log In</button>
@@ -90,7 +81,7 @@
       </div>
 
       <!-- MAIN PAGES -->
-      <div class="upper-part-container">
+      <div class="upper-part-container inactive">
         <nav class="nav">
           <a href=""><img src="Assets/Logo.png" alt="Logo" class="logo" /></a>
           <h1 class="title">Welcome <span class="name">Mr.Sayed</span></h1>
@@ -98,7 +89,6 @@
         </nav>
         <!-- pages buttons -->
         <div class="pages-btn">
-          
           <button class="balance-btn btn-active">Balance</button>
           <button class="transfer-btn">Transfer</button>
           <button class="loan-btn">Loan</button>
@@ -118,7 +108,7 @@
         </div>
       </div>
       <!-- Movements -->
-      <div class="movements-container">
+      <div class="movements-container inactive">
         <div class="movements-container-scroll">
           <div class="movement">
             <div class="movement-type">
@@ -215,7 +205,7 @@
       </div>
 
       <!-- Lower Part -->
-      <div class="lower-part-container">
+      <div class="lower-part-container inactive">
         <div class="left-part-lower">
           <h1 class="in-total">IN:<span class="in-num">3000$</span></h1>
           <h1 class="out-total">OUT:<span class="out-num">1000$</span></h1>
@@ -227,6 +217,9 @@
           <i class="bx bx-sort-alt-2 sort-icon"></i>
         </div>
       </div>
+
+      <!-- Warning  -->
+      <div class="message">hi</div>
     </div>
     <script src="script.js"></script>
   </body>

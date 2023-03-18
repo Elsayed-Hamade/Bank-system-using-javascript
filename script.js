@@ -1,9 +1,12 @@
 // Log & Sign import
-const logBtn = document.querySelector(".log-switch");
-const signBtn = document.querySelector(".sign-switch");
+const logSwitchBtn = document.querySelector(".log-switch");
+const signSwitchBtn = document.querySelector(".sign-switch");
+const logBtn = document.querySelector(".btn");
 const logInForm = document.querySelector(".log-in");
 const signUpForm = document.querySelector(".sign-up");
 const logSignBtn = document.querySelector(".btn");
+const logInMail = document.querySelector(".e-mail");
+const logInPassword = document.querySelector(".log-password");
 // Pages import
 const balancePageBtn = document.querySelector(".balance-btn");
 const transferPageBtn = document.querySelector(".transfer-btn");
@@ -15,6 +18,7 @@ const profileBtn = document.querySelector(".profile-icon");
 const profile = document.querySelector(".profile-container");
 const pagesBtn = document.querySelector(".pages-btn");
 const lowerPart = document.querySelector(".lower-part-container");
+const message = document.querySelector(".message");
 /* STYLING FUNCTIONALITY */
 //Sign & Log
 
@@ -33,17 +37,29 @@ const changeClass2 = (div1, div2, class1, class2) => {
   div2.classList.remove(class2);
 };
 
-logBtn.addEventListener("click", (e) => {
+logSwitchBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  changeClass(logBtn, signUpForm, "switch-btn-active", "inactive", "add");
-  changeClass(signBtn, logInForm, "switch-btn-active", "inactive", "remove");
+  changeClass(logSwitchBtn, signUpForm, "switch-btn-active", "inactive", "add");
+  changeClass(
+    signSwitchBtn,
+    logInForm,
+    "switch-btn-active",
+    "inactive",
+    "remove"
+  );
   logSignBtn.textContent = "Log In";
 });
 
-signBtn.addEventListener("click", (e) => {
+signSwitchBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  changeClass(signBtn, logInForm, "switch-btn-active", "inactive", "add");
-  changeClass(logBtn, signUpForm, "switch-btn-active", "inactive", "remove");
+  changeClass(signSwitchBtn, logInForm, "switch-btn-active", "inactive", "add");
+  changeClass(
+    logSwitchBtn,
+    signUpForm,
+    "switch-btn-active",
+    "inactive",
+    "remove"
+  );
   logSignBtn.textContent = "Sign Up";
 });
 
@@ -91,3 +107,58 @@ profileBtn.addEventListener("click", () => {
 });
 
 /* BANK FUNCTIONALITY */
+// Users
+const sayedhamada = {
+  firstName: "Elsayed",
+  lastName: "Hamada",
+  eMail: "elsayedhamada@gmail.com",
+  gender: "Male",
+  password: "12345678",
+};
+
+const bennyvaline = {
+  firstName: "Benny",
+  lastName: "Valine",
+  eMail: "bennyvaline@gmail.com",
+  gender: "Male",
+  password: "87654321",
+};
+
+//  Main Variables
+const accounts = [sayedhamada, bennyvaline];
+let activeAccount;
+/* Sign & Log functionality */
+logBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (signUpForm.classList.contains("inactive")) {
+    // LogIn
+    const logMail = logInMail.value;
+    const logPassword = logInPassword.value;
+
+    const messageControl = (messContent) => {
+      message.classList.add("active");
+      message.textContent = messContent;
+    };
+
+    if (!logMail || !logPassword) {
+      message.classList.remove("active")
+      messageControl("Please enter your email and password");
+    } else {
+      accounts.forEach((acc) => {
+        if (
+          logMail === acc.eMail.trim(" ") &&
+          logPassword === acc.password.trim(" ")
+        ) {
+          console.log("Logged In");
+          activeAccount = acc;
+          message.classList.remove("active")
+        }
+      });
+      if (!activeAccount) {
+        messageControl("Username or Password incorrect");
+      }
+    }
+  } else if (logInForm.classList.contains("inactive")) {
+    console.log("Sign Up Contains");
+  }
+});
