@@ -774,6 +774,21 @@ select {
     width: 30rem;
   }
 
+  .profile-mail,
+  .profile-password,
+  .profile-name{
+    width: 30rem;
+  }
+
+  .profile-mail{
+    font-size: 1.7rem;
+  }
+
+  .delete-account{
+    margin: 0;
+
+  }
+
   .upper-part-container {
     width: 100%;
     margin: 0 auto;
