@@ -14,6 +14,15 @@ html {
   color: white;
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cd5888;
+  border-radius: 5rem;
+}
+
 body {
   background-color: #20262e;
 }
@@ -315,12 +324,14 @@ select {
 /* Movements */
 
 .movements-container-scroll {
-  width: 100%;
+  width: 80%;
   height: 21rem;
+  padding: 0 1rem;
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
   flex-direction: column;
   overflow: scroll;
   animation: moveUp 1s ease;
@@ -341,7 +352,7 @@ select {
 .movement {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr;
-  width: 80%;
+  width: 100%;
   height: 8rem;
   margin: 1rem 0;
   border: 3px solid #cd5888;
@@ -595,7 +606,7 @@ select {
     width: 100rem;
   }
 
-  .movement,
+  .movements-container-scroll,
   .lower-part-container {
     width: 80rem;
   }
@@ -635,7 +646,7 @@ select {
   .nav {
     width: 70rem;
   }
-  .movement,
+  .movements-container-scroll,
   .lower-part-container {
     width: 70rem;
   }
@@ -656,7 +667,7 @@ select {
   .nav {
     width: 50rem;
   }
-  .movement {
+  .movements-container-scroll {
     width: 50rem;
   }
   .current-balance {
@@ -688,9 +699,14 @@ select {
   }
 
   .pages-btn {
-    justify-content: center;
+    width: 100%;
     flex-direction: column;
   }
+
+  .transfer-btn{
+    margin: 1rem 0;
+  }
+
   .transfer-container,
   .loan-container {
     width: 30rem;
@@ -702,9 +718,6 @@ select {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-  .transfer-btn {
-    margin: 1rem 0;
   }
 
   .title {
@@ -720,7 +733,16 @@ select {
     width: 30rem;
   }
 
-  .movement,
+  .nav {
+    width: 100%;
+  }
+
+  .movements-container-scroll {
+    height: auto;
+  }
+  .movements-container-scroll{
+    width: 80%;
+  }
   .lower-part-container {
     width: 30rem;
   }
@@ -728,7 +750,6 @@ select {
   .movement {
     height: auto;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr 1fr; */
   }
 
   .current-balance:hover .balance {
@@ -747,6 +768,17 @@ select {
     font-size: 1rem;
     grid-column: 1 / span 2;
   }
+
+  .profile-container {
+    grid-template-columns: 1fr;
+    width: 30rem;
+  }
+
+  .upper-part-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
 }
 
 @keyframes moveUp {
