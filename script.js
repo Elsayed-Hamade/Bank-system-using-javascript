@@ -44,7 +44,7 @@ const profile = document.querySelector(".profile-container");
 const profileName = document.querySelector(".profile-name");
 const profileMail = document.querySelector(".profile-mail");
 const profilePassword = document.querySelector(".profile-password");
-const deleteAccount = document.querySelector(".delete-account")
+const deleteAccount = document.querySelector(".delete-account");
 
 /* STYLING FUNCTIONALITY */
 //LogIn
@@ -126,7 +126,7 @@ const bennyvaline = {
 };
 
 //  Main Variables
-const accounts = [sayedhamada, bennyvaline];
+let accounts = [sayedhamada, bennyvaline];
 
 // Display Movements
 const displayMovements = () => {
@@ -232,7 +232,16 @@ profileBtn.addEventListener("click", () => {
 });
 
 //delete account
-
+deleteAccount.addEventListener("click", () => {
+  accounts.map((acc) => {
+    if (acc.eMail === activeAccount.eMail) {
+      const i = accounts.indexOf(acc);
+      accounts.splice(i, 1);
+      changeClass(upperPart, profile, "inactive", "inactive", "add");
+      logContainer.classList.remove("inactive");
+    }
+  });
+});
 
 /* LogIn functionality */
 logBtn.addEventListener("click", (e) => {
@@ -259,6 +268,9 @@ logBtn.addEventListener("click", (e) => {
         upperPart.classList.remove("inactive");
         movements.classList.remove("inactive");
         logContainer.classList.add("inactive");
+        logInMail.value = "";
+        logInPassword.value = "";
+
         activeAccount = acc;
 
         displayMovements();
