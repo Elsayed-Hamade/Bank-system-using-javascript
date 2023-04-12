@@ -1,5 +1,5 @@
 <h1 align="Center">Fortax Bank</h1>
-<h6 align="Center">HTML / CSS / CSS</h6>
+<h6 align="Center">HTML / CSS / JS</h6>
 
 <p>NB: Use these accounts to be able to test it : </p>
     
