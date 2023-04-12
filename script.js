@@ -27,6 +27,7 @@ const inNum = document.querySelector(".in-num");
 const outNum = document.querySelector(".out-num");
 const interestNum = document.querySelector(".interest-num");
 const nameEl = document.querySelector(".name");
+const sortBtn = document.querySelector(".sort");
 // Transfer
 const transferTo = document.querySelector(".input-to");
 const transferAmount = document.querySelector(".input-amount");
@@ -129,10 +130,10 @@ const bennyvaline = {
 let accounts = [sayedhamada, bennyvaline];
 
 // Display Movements
-const displayMovements = () => {
+const displayMovements = (movs) => {
   movementsScroll.innerHTML = "";
 
-  activeAccount.movs.forEach((mov) => {
+  movs.forEach((mov) => {
     const movType = mov > 0 ? "DEPOSIT" : "WITHDRAWAL";
     const movIcon = movType === "DEPOSIT" ? "left-down" : "left-top";
 
@@ -172,8 +173,21 @@ const calcOther = () => {
 
 // Change Name
 const changeName = () => {
-  nameEl.textContent = activeAccount.firstName;
+  nameEl.textContent = "Mr." + activeAccount.firstName;
 };
+
+// Sort Movements
+let sorted = false;
+const sortMovs = (movs) => {
+  if (sorted === false) {
+    sorted = true;
+    displayMovements(movs.sort((a, b) => a - b));
+  } else {
+    displayMovements(movs.sort((a, b) => b - a));
+    sorted = false;
+  }
+};
+sortBtn.addEventListener("click",() =>  sortMovs(activeAccount.movs));
 
 /* Transfer Page */
 const changeElementTitle = (el, message, color) => {
@@ -189,7 +203,7 @@ transferButton.addEventListener("click", (e) => {
       transferAmount.value
     ) {
       activeAccount.movs.push(Number("-" + transferAmount.value));
-      displayMovements();
+      displayMovements(activeAccount.movs);
       balance = 0;
       calcBalance();
       calcOther();
@@ -210,7 +224,7 @@ loanButton.addEventListener("click", (e) => {
   ) {
     if (balance > loanAmount.value) {
       activeAccount.movs.push(Number(loanAmount.value));
-      displayMovements();
+      displayMovements(activeAccount.movs);
       balance = 0;
       calcBalance();
       calcOther();
@@ -273,7 +287,7 @@ logBtn.addEventListener("click", (e) => {
 
         activeAccount = acc;
 
-        displayMovements();
+        displayMovements(activeAccount.movs);
         calcBalance();
         calcOther();
         changeName();
