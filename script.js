@@ -1,23 +1,25 @@
 "use strict";
-// Log & Sign import
+/* Log & Sign import*/
 const logBtn = document.querySelector(".btn");
 const logContainer = document.querySelector(".log-container");
 const logInForm = document.querySelector(".log-in");
 const logInMail = document.querySelector(".e-mail-log");
 const logInPassword = document.querySelector(".log-password");
-const firstName = document.querySelector(".first-name");
-// Pages import
+
+/* Pages import*/
+//Pages Btn
 const balancePageBtn = document.querySelector(".balance-btn");
-const balanceTitle = document.querySelector(".balance");
 const transferPageBtn = document.querySelector(".transfer-btn");
 const loanPageBtn = document.querySelector(".loan-btn");
-const movements = document.querySelector(".movements-container");
-const movementsScroll = document.querySelector(".movements-container-scroll");
+const profileBtn = document.querySelector(".profile-icon");
+const pagesBtn = document.querySelector(".pages-btn");
+// Pages
 const transfer = document.querySelector(".transfer-container");
 const loan = document.querySelector(".loan-container");
-const profileBtn = document.querySelector(".profile-icon");
-const profile = document.querySelector(".profile-container");
-const pagesBtn = document.querySelector(".pages-btn");
+// User
+const balanceTitle = document.querySelector(".balance");
+const movements = document.querySelector(".movements-container");
+const movementsScroll = document.querySelector(".movements-container-scroll");
 const lowerPart = document.querySelector(".lower-part-container");
 const upperPart = document.querySelector(".upper-part-container");
 const message = document.querySelector(".message");
@@ -25,8 +27,27 @@ const inNum = document.querySelector(".in-num");
 const outNum = document.querySelector(".out-num");
 const interestNum = document.querySelector(".interest-num");
 const nameEl = document.querySelector(".name");
+// Transfer
+const transferTo = document.querySelector(".input-to");
+const transferAmount = document.querySelector(".input-amount");
+const transferPassword = document.querySelector(".input-password");
+const transferButton = document.querySelector(".transfer-button");
+const transferTitle = document.querySelector(".transfer-title");
+
+//Loan
+const loanButton = document.querySelector(".loan-button");
+const loanAmount = document.querySelector(".loan-amount");
+const loanPassword = document.querySelector(".loan-password");
+const loanTitle = document.querySelector(".loan-title");
+//Profile
+const profile = document.querySelector(".profile-container");
+const profileName = document.querySelector(".profile-name");
+const profileMail = document.querySelector(".profile-mail");
+const profilePassword = document.querySelector(".profile-password");
+const deleteAccount = document.querySelector(".delete-account")
+
 /* STYLING FUNCTIONALITY */
-//Sign & Log
+//LogIn
 
 const changeClass = (div1, div2, class1, class2, action) => {
   if (action === "add") {
@@ -45,12 +66,12 @@ const changeClass2 = (div1, div2, class1, class2) => {
 
 // Pages
 balancePageBtn.addEventListener("click", () => {
-  changeClass2(balancePageBtn, movements, "btn-inactive", "inactive");
+  changeClass2(balancePageBtn, movements, "btn-active", "inactive");
   changeClass(
     transferPageBtn,
     loanPageBtn,
-    "btn-inactive",
-    "btn-inactive",
+    "btn-active",
+    "btn-active",
     "remove"
   );
   changeClass(transfer, loan, "inactive", "inactive", "add");
@@ -86,7 +107,7 @@ profileBtn.addEventListener("click", () => {
   changeClass2(lowerPart, profile, "inactive", "inactive");
 });
 
-/* BANK FUNCTIONALITY */
+/* Main Page */
 // Users
 const sayedhamada = {
   firstName: "Elsayed",
@@ -146,13 +167,72 @@ const calcOther = () => {
   );
   inNum.textContent = inTotal + " $";
   outNum.textContent = outTotal + " $";
-  interestNum.textContent = balance * 0.2 + " $";
+  interestNum.textContent = (inTotal - outTotal) * 0.2 + "$";
 };
 
 // Change Name
 const changeName = () => {
   nameEl.textContent = activeAccount.firstName;
 };
+
+/* Transfer Page */
+const changeElementTitle = (el, message, color) => {
+  el.textContent = message;
+  el.style.color = color;
+};
+
+transferButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (balance > transferAmount.value) {
+    if (
+      activeAccount.password === transferPassword.value.trim(" ") &&
+      transferAmount.value
+    ) {
+      activeAccount.movs.push(Number("-" + transferAmount.value));
+      displayMovements();
+      balance = 0;
+      calcBalance();
+      calcOther();
+      changeElementTitle(transferTitle, "Mony Transferred", "#00ff95");
+    } else {
+      changeElementTitle(transferTitle, "Enter Amount & Password", "red");
+    }
+  } else
+    changeElementTitle(transferTitle, "You don't have enough money", "red");
+});
+
+/* Loan Page*/
+loanButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    activeAccount.password === loanPassword.value.trim(" ") &&
+    loanAmount.value
+  ) {
+    if (balance > loanAmount.value) {
+      activeAccount.movs.push(Number(loanAmount.value));
+      displayMovements();
+      balance = 0;
+      calcBalance();
+      calcOther();
+      changeElementTitle(loanTitle, "Done", "#00ff95");
+    } else
+      changeElementTitle(
+        loanTitle,
+        "You don't have enough mony to get loan",
+        "red"
+      );
+  } else changeElementTitle(loanTitle, "Enter Amount & Password", "red");
+});
+
+/* Profile Page */
+profileBtn.addEventListener("click", () => {
+  profileName.textContent = `${activeAccount.firstName} ${activeAccount.lastName}`;
+  profileMail.textContent = activeAccount.eMail;
+  profilePassword.textContent = activeAccount.password;
+});
+
+//delete account
+
 
 /* LogIn functionality */
 logBtn.addEventListener("click", (e) => {
@@ -184,7 +264,7 @@ logBtn.addEventListener("click", (e) => {
         displayMovements();
         calcBalance();
         calcOther();
-        changeName()
+        changeName();
 
         message.classList.add("inactive");
       }
