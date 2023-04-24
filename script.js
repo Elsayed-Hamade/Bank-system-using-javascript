@@ -153,7 +153,7 @@ const displayMovements = (movs) => {
   });
 };
 
-let activeAccount = accounts[0];
+let activeAccount;
 let balance = 0;
 
 // Calc Balance
