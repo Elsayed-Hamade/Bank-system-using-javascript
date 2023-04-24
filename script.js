@@ -46,6 +46,9 @@ const profileName = document.querySelector(".profile-name");
 const profileMail = document.querySelector(".profile-mail");
 const profilePassword = document.querySelector(".profile-password");
 const deleteAccount = document.querySelector(".delete-account");
+// Time components
+const currentDate = document.querySelector(".balance-date")
+const currentTime = document.querySelector(".balance-time")
 
 /* STYLING FUNCTIONALITY */
 //LogIn
@@ -150,7 +153,7 @@ const displayMovements = (movs) => {
   });
 };
 
-let activeAccount;
+let activeAccount = accounts[0];
 let balance = 0;
 
 // Calc Balance
@@ -256,6 +259,16 @@ deleteAccount.addEventListener("click", () => {
     }
   });
 });
+/* Time */
+const now = new Date()
+const day = now.getDate();
+const month = now.getMonth();
+const year = now.getFullYear();
+const hours = now.getHours()
+const minutes = now.getMinutes()
+
+currentDate.textContent = `${`${day} - ${month} - ${year}`}`;
+currentTime.textContent = `${`${hours}:${minutes}`}`;
 
 /* LogIn functionality */
 logBtn.addEventListener("click", (e) => {
